@@ -6,6 +6,4 @@ node_js:
   - node
 
 script:
-  - make install
-  - make start
   - make lint
