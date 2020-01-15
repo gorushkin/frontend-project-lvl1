@@ -15,15 +15,14 @@ const findGcd = (x, y) => {
   return a + b;
 };
 
-  const greetings = 'Find the greatest common divisor of given numbers.';
-  const generateQusestion = () => {
-    const a = Math.round(Math.random() * 100);
-    const b = Math.round(Math.random() * 100);
-    const question = `${a} ${b}`;
-    console.log(`Question: ${question}`);
-    const answer = findGcd(a, b);
-    return answer;
-  };
-
-  game(generateQusestion, greetings);
+const greetings = 'Find the greatest common divisor of given numbers.';
+const generateQusestion = () => {
+  const a = Math.round(Math.random() * 100);
+  const b = Math.round(Math.random() * 100);
+  const question = `${a} ${b}`;
+  console.log(`Question: ${question}`);
+  const answer = findGcd(a, b);
+  return answer;
 };
+
+game(generateQusestion, greetings);
