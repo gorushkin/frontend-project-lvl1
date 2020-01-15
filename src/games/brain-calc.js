@@ -1,5 +1,4 @@
 import {
-  hello,
   game,
 } from '..';
 
@@ -23,7 +22,6 @@ const calcAnswer = (a, b, operator) => {
 
 export default () => {
   const greetings = 'Answer "yes" if the number is even, otherwise answer "no".';
-  const userName = hello(greetings);
   const generateQusestion = () => {
     const operatorStr = '+*-';
     const a = Math.round(Math.random() * 100);
@@ -35,5 +33,5 @@ export default () => {
     return answer;
   };
 
-  game(generateQusestion, userName);
+  game(generateQusestion, greetings);
 };

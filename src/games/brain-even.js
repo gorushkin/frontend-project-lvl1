@@ -1,8 +1,7 @@
-import { hello, game } from '..';
+import { game } from '..';
 
 export default () => {
   const greetings = 'Answer "yes" if the number is even, otherwise answer "no".';
-  const userName = hello(greetings);
   const generateQusestion = () => {
     const question = Math.round(Math.random() * 100);
     console.log(`Question: ${question}`);
@@ -10,5 +9,5 @@ export default () => {
     return answer;
   };
 
-  game(generateQusestion, userName);
+  game(generateQusestion, greetings);
 };

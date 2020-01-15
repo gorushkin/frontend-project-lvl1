@@ -1,5 +1,4 @@
 import {
-  hello,
   game,
 } from '..';
 
@@ -16,9 +15,7 @@ const findGcd = (x, y) => {
   return a + b;
 };
 
-export default () => {
   const greetings = 'Find the greatest common divisor of given numbers.';
-  const userName = hello(greetings);
   const generateQusestion = () => {
     const a = Math.round(Math.random() * 100);
     const b = Math.round(Math.random() * 100);
@@ -28,5 +25,5 @@ export default () => {
     return answer;
   };
 
-  game(generateQusestion, userName);
+  game(generateQusestion, greetings);
 };
