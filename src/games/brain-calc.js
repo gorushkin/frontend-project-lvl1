@@ -1,4 +1,5 @@
 import {
+  getRandomInteger,
   game,
 } from '..';
 
@@ -21,12 +22,12 @@ const calcAnswer = (a, b, operator) => {
 };
 
 export default () => {
-  const greetings = 'Answer "yes" if the number is even, otherwise answer "no".';
+  const greetings = 'What is the result of the expression?';
   const generateQusestion = () => {
     const operatorStr = '+*-';
-    const a = Math.round(Math.random() * 100);
-    const b = Math.round(Math.random() * 100);
-    const operator = operatorStr[Math.round(Math.random() * 2)];
+    const a = getRandomInteger(0, 10);
+    const b = getRandomInteger(0, 10);
+    const operator = operatorStr[getRandomInteger(0, 2)];
     const question = `${a}${operator}${b}`;
     console.log(`Question: ${question}`);
     const answer = calcAnswer(a, b, operator);
