@@ -1,27 +1,28 @@
-import { getRandomInteger, game } from '..';
+import {
+  getRandomInteger,
+  game,
+} from '..';
 
-export default () => {
-  const greetings = 'Answer "yes" if the number is even, otherwise answer "no".';
-  const generateQusestion = () => {
-    const progressonLength = 10;
-    const secretNumber = getRandomInteger(0, 9);
-    const progressonStep = getRandomInteger(1, 10);
-    let progression = getRandomInteger(0, 100);
-    let question = '';
-    let answer;
-    for (let i = 0; i < progressonLength; i += 1) {
-      const elem = progression + progressonStep;
-      if (secretNumber === i) {
-        answer = elem;
-        question += ' ..';
-      } else {
-        question += ` ${elem}`;
-      }
-      progression += progressonStep;
+const greetings = 'Answer "yes" if the number is even, otherwise answer "no".';
+
+const generateQuestion = () => {
+  const progressionLength = 10;
+  const hiddenNumberPosition = getRandomInteger(0, progressionLength - 1);
+  const progressionStep = getRandomInteger(1, 10);
+  const firstProgressionElement = getRandomInteger(0, 100);
+  let currentProgressionElement = firstProgressionElement;
+  let question = '';
+  let answer;
+  for (let i = 0; i < progressionLength; i += 1) {
+    if (hiddenNumberPosition === i) {
+      answer = currentProgressionElement;
+      question = `${question} ..`;
+    } else {
+      question = `${question} ${currentProgressionElement}`;
     }
-    console.log(`Question: ${question}`);
-    return answer;
-  };
-
-  game(generateQusestion, greetings);
+    currentProgressionElement += progressionStep;
+  }
+  return [answer, question];
 };
+
+export default () => game(generateQuestion, greetings);

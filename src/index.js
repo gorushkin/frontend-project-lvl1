@@ -15,7 +15,8 @@ export const game = (func, greetings) => {
   let i = 0;
   const userName = hello(greetings);
   while (i < maxTry) {
-    const correctAnswer = func();
+    const [correctAnswer, question] = func();
+    console.log(`Question: ${question}`);
     const userAnswer = readlineSync.question('Your answer: ');
     if (String(correctAnswer) !== String(userAnswer)) {
       console.log(`${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'. \nLet's try again, ${userName}!`);

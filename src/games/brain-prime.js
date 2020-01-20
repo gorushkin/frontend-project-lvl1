@@ -3,20 +3,21 @@ import {
   game,
 } from '..';
 
-export default () => {
-  const greetings = 'Answer "yes" if given number is prime. Otherwise answer "no".';
-  const generateQusestion = () => {
-    const question = getRandomInteger(1, 1000);
-    let answer = 'yes';
-    console.log(`Question: ${question}`);
-    for (let i = 2; i < question; i += 1) {
-      if (question % i === 0) {
-        answer = 'no';
-        return answer;
-      }
-    }
-    return answer;
-  };
+const greetings = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
-  game(generateQusestion, greetings);
+const isPrime = (number) => {
+  for (let i = 2; i < number; i += 1) {
+    if (number % i === 0) {
+      return false;
+    }
+  }
+  return true;
 };
+
+const generateQuestion = () => {
+  const question = getRandomInteger(1, 1000);
+  const answer = isPrime(question) ? 'yes' : 'no';
+  return [answer, question];
+};
+
+export default () => game(generateQuestion, greetings);

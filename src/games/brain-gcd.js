@@ -16,16 +16,14 @@ const findGcd = (x, y) => {
   return a + b;
 };
 
-export default () => {
-  const greetings = 'Find the greatest common divisor of given numbers.';
-  const generateQusestion = () => {
-    const a = getRandomInteger(0, 100);
-    const b = getRandomInteger(0, 100);
-    const question = `${a} ${b}`;
-    console.log(`Question: ${question}`);
-    const answer = findGcd(a, b);
-    return answer;
-  };
+const greetings = 'Find the greatest common divisor of given numbers.';
 
-  game(generateQusestion, greetings);
+const generateQuestion = () => {
+  const a = getRandomInteger(0, 100);
+  const b = getRandomInteger(0, 100);
+  const question = `${a} ${b}`;
+  const answer = findGcd(a, b);
+  return [answer, question];
 };
+
+export default () => game(generateQuestion, greetings);
