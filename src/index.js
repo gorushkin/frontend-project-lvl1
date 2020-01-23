@@ -10,15 +10,15 @@ export const hello = (greetings) => {
   return userName;
 };
 
-export const game = (func, greetings) => {
+export const gameEngine = (generateQuestionAnswer, greetings) => {
   const maxTry = 3;
   let i = 0;
   const userName = hello(greetings);
   while (i < maxTry) {
-    const [correctAnswer, question] = func();
+    const [correctAnswer, question] = generateQuestionAnswer();
     console.log(`Question: ${question}`);
     const userAnswer = readlineSync.question('Your answer: ');
-    if (String(correctAnswer) !== String(userAnswer)) {
+    if (userAnswer !== correctAnswer) {
       console.log(`${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'. \nLet's try again, ${userName}!`);
     } else {
       i += 1;

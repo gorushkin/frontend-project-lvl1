@@ -1,28 +1,36 @@
 import {
   getRandomInteger,
-  game,
+  gameEngine,
 } from '..';
 
-const greetings = 'Answer "yes" if the number is even, otherwise answer "no".';
+const greetings = 'What number is missing in the progression?';
+const progressionLength = 10;
+const minHiddenNumberPosition = 0;
+const maxHiddenNumberPosition = progressionLength - 1;
+const minProgressionStep = 1;
+const maxProgressionStep = 10;
+const minFirstProgressionElement = 0;
+const maxFirstProgressionElement = 100;
 
-const generateQuestion = () => {
-  const progressionLength = 10;
-  const hiddenNumberPosition = getRandomInteger(0, progressionLength - 1);
-  const progressionStep = getRandomInteger(1, 10);
-  const firstProgressionElement = getRandomInteger(0, 100);
-  let currentProgressionElement = firstProgressionElement;
-  let question = '';
-  let answer;
-  for (let i = 0; i < progressionLength; i += 1) {
-    if (hiddenNumberPosition === i) {
-      answer = currentProgressionElement;
-      question = `${question} ..`;
-    } else {
-      question = `${question} ${currentProgressionElement}`;
-    }
-    currentProgressionElement += progressionStep;
+const generateProgression = (a, d, length) => {
+  const progression = [];
+  let currentElement = a;
+  for (let i = 0; i < length; i += 1) {
+    progression.push(currentElement);
+    currentElement += d;
   }
+  return progression;
+};
+
+const generateQuestionAnswer = () => {
+  const hiddenNumberPosition = getRandomInteger(minHiddenNumberPosition, maxHiddenNumberPosition);
+  const progressionStep = getRandomInteger(minProgressionStep, maxProgressionStep);
+  const firstProgressionElement = getRandomInteger(minFirstProgressionElement, maxFirstProgressionElement);
+  const progression = generateProgression(firstProgressionElement, progressionStep, progressionLength);
+  progression[hiddenNumberPosition] = '..';
+  const question = progression.join(' ');
+  const answer = String(firstProgressionElement + progressionStep * (hiddenNumberPosition));
   return [answer, question];
 };
 
-export default () => game(generateQuestion, greetings);
+export default () => gameEngine(generateQuestionAnswer, greetings);

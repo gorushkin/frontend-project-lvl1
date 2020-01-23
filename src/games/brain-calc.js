@@ -1,9 +1,13 @@
 import {
   getRandomInteger,
-  game,
+  gameEngine,
 } from '..';
 
 const greetings = 'What is the result of the expression?';
+const minRandomInteger = 0;
+const maxRandomInteger = 10;
+const operators = '+*-';
+const operatorsLength = 2;
 
 const calcAnswer = (a, b, operator) => {
   let result;
@@ -23,14 +27,13 @@ const calcAnswer = (a, b, operator) => {
   return result;
 };
 
-const generateQuestion = () => {
-  const operatorList = '+*-';
-  const a = getRandomInteger(0, 10);
-  const b = getRandomInteger(0, 10);
-  const operator = operatorList[getRandomInteger(0, 2)];
+const generateQuestionAnswer = () => {
+  const a = getRandomInteger(minRandomInteger, maxRandomInteger);
+  const b = getRandomInteger(minRandomInteger, maxRandomInteger);
+  const operator = operators[getRandomInteger(0, operatorsLength)];
   const question = `${a}${operator}${b}`;
-  const answer = calcAnswer(a, b, operator);
+  const answer = String(calcAnswer(a, b, operator));
   return [answer, question];
 };
 
-export default () => game(generateQuestion, greetings);
+export default () => gameEngine(generateQuestionAnswer, greetings);

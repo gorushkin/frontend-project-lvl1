@@ -1,12 +1,12 @@
 import {
   getRandomInteger,
-  game,
+  gameEngine,
 } from '..';
 
 const greetings = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
 const isPrime = (number) => {
-  for (let i = 2; i < number; i += 1) {
+  for (let i = 2; i < number / 2; i += 1) {
     if (number % i === 0) {
       return false;
     }
@@ -14,10 +14,13 @@ const isPrime = (number) => {
   return true;
 };
 
-const generateQuestion = () => {
-  const question = getRandomInteger(1, 1000);
+const minRandomInteger = 1;
+const maxRandomInteger = 1000;
+
+const generateQuestionAnswer = () => {
+  const question = getRandomInteger(minRandomInteger, maxRandomInteger);
   const answer = isPrime(question) ? 'yes' : 'no';
   return [answer, question];
 };
 
-export default () => game(generateQuestion, greetings);
+export default () => gameEngine(generateQuestionAnswer, greetings);
