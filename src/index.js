@@ -10,8 +10,9 @@ export const hello = (greetings) => {
   return userName;
 };
 
+const maxTry = 3;
+
 export const gameEngine = (generateQuestionAnswer, greetings) => {
-  const maxTry = 3;
   let i = 0;
   const userName = hello(greetings);
   while (i < maxTry) {

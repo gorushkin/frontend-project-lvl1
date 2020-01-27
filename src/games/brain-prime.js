@@ -14,11 +14,8 @@ const isPrime = (number) => {
   return true;
 };
 
-const minRandomInteger = 1;
-const maxRandomInteger = 1000;
-
 const generateQuestionAnswer = () => {
-  const question = getRandomInteger(minRandomInteger, maxRandomInteger);
+  const question = getRandomInteger(0, 1000);
   const answer = isPrime(question) ? 'yes' : 'no';
   return [answer, question];
 };

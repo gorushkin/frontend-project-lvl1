@@ -17,13 +17,10 @@ const findGcd = (x, y) => {
 };
 
 const greetings = 'Find the greatest common divisor of given numbers.';
-const minRandomInteger = 0;
-const maxRandomInteger = 100;
-
 
 const generateQuestionAnswer = () => {
-  const a = getRandomInteger(minRandomInteger, maxRandomInteger);
-  const b = getRandomInteger(minRandomInteger, maxRandomInteger);
+  const a = getRandomInteger(0, 100);
+  const b = getRandomInteger(0, 100);
   const question = `${a} ${b}`;
   const answer = String(findGcd(a, b));
   return [answer, question];
