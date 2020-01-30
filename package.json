@@ -1,7 +1,12 @@
 {
   "name": "frontend-project-lvl1",
-  "version": "1.9.7",
-  "description": "",
+  "version": "1.9.9",
+  "description": "Проект 'Hexlet: Игры разума'",
+  "keywords": [
+    "hexlet",
+    "brain-games",
+    "frontend"
+  ],
   "main": "index.js",
   "bin": {
     "brain-even": "dist/bin/brain-even.js",

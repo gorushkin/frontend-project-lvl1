@@ -1,12 +1,11 @@
-import {
-  getRandomInteger,
-  gameEngine,
-} from '..';
+import gameEngine from '..';
+import getRandomInteger from '../utils';
 
 const greetings = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
 const isPrime = (number) => {
-  for (let i = 2; i < number / Math.sqrt(number); i += 1) {
+  if (number < 2) return false;
+  for (let i = 2; i <= number / Math.sqrt(number); i += 1) {
     if (number % i === 0) {
       return false;
     }

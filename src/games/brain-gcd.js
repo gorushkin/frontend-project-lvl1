@@ -1,7 +1,5 @@
-import {
-  getRandomInteger,
-  gameEngine,
-} from '..';
+import gameEngine from '..';
+import getRandomInteger from '../utils';
 
 const findGcd = (x, y) => {
   let a = x;

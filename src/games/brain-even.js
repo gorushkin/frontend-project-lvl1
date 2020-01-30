@@ -1,9 +1,7 @@
-import {
-  getRandomInteger,
-  gameEngine,
-} from '..';
+import gameEngine from '..';
+import getRandomInteger from '../utils';
 
-const greetings = 'Answer "yes" if the number is even, otherwise answer "no".';
+const gameDescription = 'Answer "yes" if the number is even, otherwise answer "no".';
 
 const generateQuestionAnswer = () => {
   const question = getRandomInteger(0, 100);
@@ -11,4 +9,4 @@ const generateQuestionAnswer = () => {
   return [answer, question];
 };
 
-export default () => gameEngine(generateQuestionAnswer, greetings);
+export default () => gameEngine(generateQuestionAnswer, gameDescription);

@@ -1,7 +1,5 @@
-import {
-  getRandomInteger,
-  gameEngine,
-} from '..';
+import gameEngine from '..';
+import getRandomInteger from '../utils';
 
 const greetings = 'What number is missing in the progression?';
 const progressionLength = 10;
@@ -9,10 +7,8 @@ const maxHiddenNumberIndex = progressionLength - 1;
 
 const generateProgression = (firstProgressionElement, progressionStep, length) => {
   const progression = [];
-  let currentElement = firstProgressionElement;
   for (let i = 0; i < length; i += 1) {
-    progression.push(currentElement);
-    currentElement += progressionStep;
+    progression.push(firstProgressionElement + progressionStep * i);
   }
   return progression;
 };
