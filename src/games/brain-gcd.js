@@ -14,7 +14,7 @@ const findGcd = (x, y) => {
   return a + b;
 };
 
-const greetings = 'Find the greatest common divisor of given numbers.';
+const gameDescription = 'Find the greatest common divisor of given numbers.';
 
 const generateQuestionAnswer = () => {
   const a = getRandomInteger(0, 100);
@@ -24,4 +24,4 @@ const generateQuestionAnswer = () => {
   return [answer, question];
 };
 
-export default () => gameEngine(generateQuestionAnswer, greetings);
+export default () => gameEngine(generateQuestionAnswer, gameDescription);

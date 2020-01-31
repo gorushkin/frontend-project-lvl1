@@ -1,7 +1,7 @@
 import gameEngine from '..';
 import getRandomInteger from '../utils';
 
-const greetings = 'What number is missing in the progression?';
+const gameDescription = 'What number is missing in the progression?';
 const progressionLength = 10;
 const maxHiddenNumberIndex = progressionLength - 1;
 
@@ -26,4 +26,4 @@ const generateQuestionAnswer = () => {
   return [answer, question];
 };
 
-export default () => gameEngine(generateQuestionAnswer, greetings);
+export default () => gameEngine(generateQuestionAnswer, gameDescription);
